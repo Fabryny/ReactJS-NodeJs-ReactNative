@@ -1,5 +1,6 @@
 
 import { useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import './NavBar.css'
 /* import {$, jQuery} from 'jquery'; */
 const $ = require( "jquery" );
@@ -7,39 +8,17 @@ const $ = require( "jquery" );
 
 
 
-
-
-
-
-
-// Add active class on another page linked
-// ==========================================
-// $(window).on('load',function () {
-//     var current = location.pathname;
-//     console.log(current);
-//     $('#navbarSupportedContent ul li a').each(function(){
-//         var $this = $(this);
-//         // if the current path is like this link, make it active
-//         if($this.attr('href').indexOf(current) !== -1){
-//             $this.parent().addClass('active');
-//             $this.parents('.menu-submenu').addClass('show-dropdown');
-//             $this.parents('.menu-submenu').parent().addClass('active');
-//         }else{
-//             $this.parent().removeClass('active');
-//         }
-//     })
-// });
-
-
 function NavBar(){
 
-
-
+ let current = window.location.pathname;  
     
 
 
 
     useEffect( ()  => {
+        
+
+
         function test(){
             var tabsNewAnim = $('#navbarSupportedContent');
             var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
@@ -69,6 +48,7 @@ function NavBar(){
                 });
             });
         }
+
         $(document).ready(function(){
             setTimeout(function(){ test(); });
         });
@@ -80,6 +60,20 @@ function NavBar(){
             setTimeout(function(){ test(); });
         });
         
+
+       
+            $('#navbarSupportedContent ul li a').each(function(){
+                var $this = $(this);
+                // if the current path is like this link, make it active
+                if($this.attr('href') === current){
+                    $this.parent().addClass('active');
+                    $this.parents('.menu-submenu').addClass('show-dropdown');
+                    $this.parents('.menu-submenu').parent().addClass('active');
+                }else{
+                    $this.parent().removeClass('active');
+                }
+            })
+   
         
         
         // --------------add active class-on another-page move----------
@@ -119,22 +113,10 @@ function NavBar(){
             <ul className="navbar-nav ml-auto">
                 <div className="hori-selector"><div className="left"></div><div className="right"></div></div>
                 <li className="nav-item">
-                    <a className="nav-link" href="#"><i className="fas fa-tachometer-alt"></i>Dashboard</a>
-                </li>
-                <li className="nav-item active">
-                    <a className="nav-link" href="#"><i className="far fa-address-book"></i>Address Book</a>
+                    <Link className="nav-link " to="/"><i className="fas fa-tachometer-alt"></i>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#"><i className="far fa-clone"></i>Components</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#"><i className="far fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="/a"><i className="far fa-chart-bar"></i>Charts</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#"><i className="far fa-copy"></i>Documents</a>
+                    <Link className="nav-link" to="/favoritos"><i className="fas fa-tachometer-alt"></i>Meus filmes</Link>
                 </li>
             </ul>
         </div>

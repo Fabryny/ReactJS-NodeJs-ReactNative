@@ -14,7 +14,7 @@ function Filme() {
         async function carregarFilme(){
         await axio.get(`/movie/${id}`, {
             params:{
-            api_key: "28fc232cc001c31e8a031f419d0a14ca",
+            api_key: "65c2d5035d07017f2ac2b44a123289ee",
             language: "pt-BR",
             }
         })
@@ -41,20 +41,20 @@ function Filme() {
 
 
     function salvarFilme(){
-/*         const minhaLista = localStorage.getItem("@primeflix");
+        const minhaLista = localStorage.getItem("@primeflix");
     
         let filmesSalvos = JSON.parse(minhaLista) || [];
     
         const hasFilme = filmesSalvos.some( (filmesSalvo) => filmesSalvo.id === filme.id)
     
         if(hasFilme){
-          toast.warn("Esse filme já está na sua lista!")
+          alert("Esse filme já está na sua lista!")
           return;
         }
     
         filmesSalvos.push(filme);
         localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos));
-        toast.success("Filme salvo com sucesso!") */
+        alert("Filme salvo com sucesso!")
     
       }
 
